@@ -711,6 +711,332 @@
       max-width: 600px;
     }
 
+    /* ===== DASHBOARD GALLERY ===== */
+    #dashboards {
+      background: var(--cream);
+    }
+
+    .slider-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+    }
+
+    .slider-track {
+      display: flex;
+      transition: transform 0.5s var(--transition);
+    }
+
+    .slider-slide {
+      min-width: 100%;
+      position: relative;
+    }
+
+    .slider-slide img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      border-radius: 16px;
+      border: 1px solid var(--gray-200);
+    }
+
+    .slide-placeholder {
+      width: 100%;
+      height: 500px;
+      border-radius: 16px;
+      border: 2px dashed var(--gray-200);
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      color: var(--gray-400);
+    }
+
+    .slide-placeholder svg {
+      width: 48px;
+      height: 48px;
+      opacity: 0.4;
+    }
+
+    .slide-placeholder span {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .slide-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.5rem 2rem;
+      background: linear-gradient(transparent, rgba(11, 29, 58, 0.9));
+      border-radius: 0 0 16px 16px;
+    }
+
+    .slide-caption h4 {
+      color: var(--white);
+      font-size: 1.1rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .slide-caption p {
+      color: var(--gray-200);
+      font-size: 0.82rem;
+    }
+
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(11, 29, 58, 0.85);
+      color: var(--white);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+      z-index: 5;
+      backdrop-filter: blur(8px);
+    }
+
+    .slider-btn:hover {
+      background: var(--gold);
+      color: var(--navy);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .slider-btn.prev { left: 1rem; }
+    .slider-btn.next { right: 1rem; }
+
+    .slider-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .slider-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--gray-200);
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .slider-dot.active {
+      background: var(--gold);
+      transform: scale(1.2);
+    }
+
+    /* ===== CODE SHOWCASE ===== */
+    #codigos {
+      background: var(--navy);
+      position: relative;
+    }
+
+    #codigos .section-label { color: var(--gold); }
+    #codigos .section-title { color: var(--white); }
+    #codigos .section-subtitle { color: var(--gray-400); }
+
+    .code-slider-container {
+      position: relative;
+    }
+
+    .code-tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .code-tab {
+      padding: 0.5rem 1.25rem;
+      border-radius: 8px;
+      border: 1px solid rgba(198, 151, 91, 0.2);
+      background: rgba(255,255,255,0.04);
+      color: var(--gray-400);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .code-tab:hover {
+      border-color: rgba(198, 151, 91, 0.4);
+      color: var(--gold-light);
+    }
+
+    .code-tab.active {
+      background: rgba(198, 151, 91, 0.15);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .code-tab .lang-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .code-tab .lang-dot.sql { background: #569CD6; }
+    .code-tab .lang-dot.python { background: #4EC9B0; }
+    .code-tab .lang-dot.dax { background: #CE9178; }
+
+    .code-panel {
+      display: none;
+      animation: fadeInCode 0.4s ease;
+    }
+
+    .code-panel.active { display: block; }
+
+    @keyframes fadeInCode {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .code-block {
+      background: #0D1117;
+      border-radius: 12px;
+      border: 1px solid rgba(198, 151, 91, 0.15);
+      overflow: hidden;
+    }
+
+    .code-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1.25rem;
+      background: rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .code-header-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .code-window-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .code-window-dots span {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .code-window-dots span:nth-child(1) { background: #FF5F57; }
+    .code-window-dots span:nth-child(2) { background: #FFBD2E; }
+    .code-window-dots span:nth-child(3) { background: #28C840; }
+
+    .code-filename {
+      font-size: 0.78rem;
+      color: var(--gray-400);
+      font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+    }
+
+    .code-copy-btn {
+      padding: 0.3rem 0.75rem;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: transparent;
+      color: var(--gray-400);
+      font-size: 0.72rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .code-copy-btn:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .code-body {
+      padding: 1.5rem;
+      overflow-x: auto;
+      max-height: 450px;
+      overflow-y: auto;
+    }
+
+    .code-body pre {
+      margin: 0;
+      font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+      font-size: 0.82rem;
+      line-height: 1.8;
+      color: #E6EDF3;
+      white-space: pre;
+      tab-size: 4;
+    }
+
+    /* Syntax colors */
+    .kw { color: #FF7B72; }
+    .fn { color: #D2A8FF; }
+    .str { color: #A5D6FF; }
+    .cm { color: #8B949E; font-style: italic; }
+    .num { color: #79C0FF; }
+    .op { color: #FF7B72; }
+    .type { color: #FFA657; }
+    .var { color: #FFA657; }
+
+    .code-description {
+      padding: 1rem 1.25rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .code-description p {
+      font-size: 0.82rem;
+      color: var(--gray-400);
+      line-height: 1.6;
+    }
+
+    .code-nav-arrows {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1.25rem;
+    }
+
+    .code-nav-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.25rem;
+      border-radius: 8px;
+      border: 1px solid rgba(198, 151, 91, 0.2);
+      background: transparent;
+      color: var(--gray-400);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .code-nav-btn:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .code-counter {
+      font-size: 0.82rem;
+      color: var(--gray-400);
+    }
+
     /* ===== CONTACT ===== */
     #contato {
       background: var(--navy);
@@ -903,6 +1229,9 @@
       .hero-stats { grid-template-columns: 1fr 1fr; }
       .skills-grid { grid-template-columns: 1fr; }
       section { padding: 4rem 1.25rem; }
+      .slider-slide img, .slide-placeholder { height: 280px; }
+      .code-body { padding: 1rem; }
+      .code-body pre { font-size: 0.72rem; }
     }
   </style>
 </head>
@@ -916,6 +1245,8 @@
         <li><a href="#sobre">Sobre</a></li>
         <li><a href="#habilidades">Habilidades</a></li>
         <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#dashboards">Dashboards</a></li>
+        <li><a href="#codigos">Códigos</a></li>
         <li><a href="#experiencia">Experiência</a></li>
         <li><a href="#contato">Contato</a></li>
       </ul>
@@ -927,6 +1258,8 @@
       <a href="#sobre" onclick="toggleMenu()">Sobre</a>
       <a href="#habilidades" onclick="toggleMenu()">Habilidades</a>
       <a href="#projetos" onclick="toggleMenu()">Projetos</a>
+      <a href="#dashboards" onclick="toggleMenu()">Dashboards</a>
+      <a href="#codigos" onclick="toggleMenu()">Códigos</a>
       <a href="#experiencia" onclick="toggleMenu()">Experiência</a>
       <a href="#contato" onclick="toggleMenu()">Contato</a>
     </div>
@@ -953,7 +1286,8 @@
         <!-- Substitua o bloco abaixo pela sua foto: -->
         <!-- <img src="sua-foto.jpg" alt="Alysson Ribeiro" class="hero-photo"> -->
         <div class="hero-photo-placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <img src="foto_perfil.jpg" alt="Alysson Ribeiro" class="hero-photo"> 
+          <!-- <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>-->
         </div>
         <div class="hero-stats" style="width:100%;">
           <div class="stat-card">
@@ -1178,6 +1512,432 @@
 
   <!-- Experiência -->
   <section id="experiencia">
+
+  <!-- Dashboard Gallery -->
+  <section id="dashboards">
+    <div class="section-inner">
+      <span class="section-label">Galeria</span>
+      <h2 class="section-title">Dashboards em Destaque</h2>
+      <p class="section-subtitle">Uma amostra dos dashboards interativos que desenvolvi ao longo da carreira.</p>
+
+      <div class="slider-container reveal" id="dashSlider">
+        <div class="slider-track" id="dashTrack">
+
+          <!-- SLIDE 1 - Substitua pelo seu screenshot -->
+          <div class="slider-slide">
+            <div class="slide-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+              <span>Dashboard 1 — Adicione sua imagem</span>
+            </div>
+            <div class="slide-caption">
+              <h4>Dashboard de Comissionamento</h4>
+              <p>Power BI · Validação de pagamentos de seguros e previdência</p>
+            </div>
+          </div>
+
+          <!-- SLIDE 2 -->
+          <div class="slider-slide">
+            <div class="slide-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+              <span>Dashboard 2 — Adicione sua imagem</span>
+            </div>
+            <div class="slide-caption">
+              <h4>Monitoramento Regulatório</h4>
+              <p>Power BI · Compliance e prazos ADASA/SUSEP</p>
+            </div>
+          </div>
+
+          <!-- SLIDE 3 -->
+          <div class="slider-slide">
+            <div class="slide-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+              <span>Dashboard 3 — Adicione sua imagem</span>
+            </div>
+            <div class="slide-caption">
+              <h4>Análise Operacional</h4>
+              <p>Power BI · KPIs e métricas de performance</p>
+            </div>
+          </div>
+
+          <!-- SLIDE 4 -->
+          <div class="slider-slide">
+            <div class="slide-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+              <span>Dashboard 4 — Adicione sua imagem</span>
+            </div>
+            <div class="slide-caption">
+              <h4>Painel de Governança</h4>
+              <p>Power BI · Qualidade de dados e metadados</p>
+            </div>
+          </div>
+        </div>
+
+        <button class="slider-btn prev" onclick="slideDash(-1)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="slider-btn next" onclick="slideDash(1)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+
+      <div class="slider-dots" id="dashDots"></div>
+    </div>
+  </section>
+
+  <!-- Code Showcase -->
+  <section id="codigos">
+    <div class="section-inner">
+      <span class="section-label">Showcase</span>
+      <h2 class="section-title">Códigos & Scripts</h2>
+      <p class="section-subtitle">Exemplos de código SQL, Python e DAX que demonstram minha abordagem técnica.</p>
+
+      <div class="code-slider-container reveal">
+        <!-- Language Tabs -->
+        <div class="code-tabs">
+          <button class="code-tab active" onclick="switchLang('sql')">
+            <span class="lang-dot sql"></span> SQL
+          </button>
+          <button class="code-tab" onclick="switchLang('python')">
+            <span class="lang-dot python"></span> Python
+          </button>
+          <button class="code-tab" onclick="switchLang('dax')">
+            <span class="lang-dot dax"></span> DAX
+          </button>
+        </div>
+
+        <!-- SQL Panel -->
+        <div class="code-panel active" id="panel-sql">
+          <div class="code-block" id="sql-block-0">
+            <div class="code-header">
+              <div class="code-header-left">
+                <div class="code-window-dots"><span></span><span></span><span></span></div>
+                <span class="code-filename">comissionamento_validacao.sql</span>
+              </div>
+              <button class="code-copy-btn" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <div class="code-body">
+<pre><span class="cm">-- Validação de pagamentos de comissionamento</span>
+<span class="cm">-- Cruza dados de emissão com regras de negócio</span>
+
+<span class="kw">WITH</span> base_comissao <span class="kw">AS</span> (
+    <span class="kw">SELECT</span>
+        c.id_corretor,
+        c.nome_corretor,
+        p.nr_proposta,
+        p.cd_produto,
+        p.vl_premio,
+        p.vl_comissao,
+        p.dt_emissao,
+        r.pct_comissao <span class="kw">AS</span> pct_esperado,
+        <span class="fn">ROUND</span>(p.vl_premio * r.pct_comissao / <span class="num">100</span>, <span class="num">2</span>) <span class="kw">AS</span> vl_comissao_esperado
+    <span class="kw">FROM</span> dbo.fato_producao p
+    <span class="kw">INNER JOIN</span> dbo.dim_corretor c
+        <span class="kw">ON</span> p.id_corretor = c.id_corretor
+    <span class="kw">INNER JOIN</span> dbo.regra_comissao r
+        <span class="kw">ON</span> p.cd_produto = r.cd_produto
+        <span class="kw">AND</span> p.dt_emissao <span class="kw">BETWEEN</span> r.dt_inicio <span class="kw">AND</span> r.dt_fim
+    <span class="kw">WHERE</span> p.dt_emissao >= <span class="str">'2024-01-01'</span>
+)
+<span class="kw">SELECT</span>
+    id_corretor,
+    nome_corretor,
+    <span class="fn">COUNT</span>(*) <span class="kw">AS</span> qtd_propostas,
+    <span class="fn">SUM</span>(vl_comissao) <span class="kw">AS</span> total_pago,
+    <span class="fn">SUM</span>(vl_comissao_esperado) <span class="kw">AS</span> total_esperado,
+    <span class="fn">SUM</span>(vl_comissao) - <span class="fn">SUM</span>(vl_comissao_esperado) <span class="kw">AS</span> diferenca
+<span class="kw">FROM</span> base_comissao
+<span class="kw">GROUP BY</span> id_corretor, nome_corretor
+<span class="kw">HAVING</span> <span class="fn">ABS</span>(<span class="fn">SUM</span>(vl_comissao) - <span class="fn">SUM</span>(vl_comissao_esperado)) > <span class="num">0.01</span>
+<span class="kw">ORDER BY</span> diferenca <span class="kw">DESC</span>;</pre>
+            </div>
+            <div class="code-description">
+              <p>Query de validação que cruza produção com regras de comissionamento, identificando divergências entre valores pagos e esperados por corretor.</p>
+            </div>
+          </div>
+
+          <div class="code-block" id="sql-block-1" style="display:none;">
+            <div class="code-header">
+              <div class="code-header-left">
+                <div class="code-window-dots"><span></span><span></span><span></span></div>
+                <span class="code-filename">etl_carga_incremental.sql</span>
+              </div>
+              <button class="code-copy-btn" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <div class="code-body">
+<pre><span class="cm">-- Procedure de carga incremental para fato de sinistros</span>
+<span class="cm">-- Utiliza merge para upsert e controle de watermark</span>
+
+<span class="kw">CREATE PROCEDURE</span> dbo.sp_carga_fato_sinistro
+<span class="kw">AS</span>
+<span class="kw">BEGIN</span>
+    <span class="kw">SET NOCOUNT ON</span>;
+
+    <span class="kw">DECLARE</span> <span class="var">@ultima_carga</span> <span class="type">DATETIME</span>;
+
+    <span class="kw">SELECT</span> <span class="var">@ultima_carga</span> = <span class="fn">MAX</span>(dt_ultima_carga)
+    <span class="kw">FROM</span> dbo.controle_etl
+    <span class="kw">WHERE</span> nm_processo = <span class="str">'FATO_SINISTRO'</span>;
+
+    <span class="kw">MERGE</span> dbo.fato_sinistro <span class="kw">AS</span> target
+    <span class="kw">USING</span> (
+        <span class="kw">SELECT</span>
+            s.id_sinistro,
+            s.id_apolice,
+            s.cd_produto,
+            s.vl_sinistro,
+            s.dt_aviso,
+            s.dt_pagamento,
+            s.cd_status,
+            <span class="fn">GETDATE</span>() <span class="kw">AS</span> dt_carga
+        <span class="kw">FROM</span> staging.sinistros s
+        <span class="kw">WHERE</span> s.dt_alteracao > <span class="var">@ultima_carga</span>
+    ) <span class="kw">AS</span> source
+    <span class="kw">ON</span> target.id_sinistro = source.id_sinistro
+    <span class="kw">WHEN MATCHED THEN</span>
+        <span class="kw">UPDATE SET</span>
+            target.vl_sinistro = source.vl_sinistro,
+            target.cd_status   = source.cd_status,
+            target.dt_carga    = source.dt_carga
+    <span class="kw">WHEN NOT MATCHED THEN</span>
+        <span class="kw">INSERT</span> (id_sinistro, id_apolice, cd_produto,
+                vl_sinistro, dt_aviso, dt_pagamento,
+                cd_status, dt_carga)
+        <span class="kw">VALUES</span> (source.id_sinistro, source.id_apolice,
+                source.cd_produto, source.vl_sinistro,
+                source.dt_aviso, source.dt_pagamento,
+                source.cd_status, source.dt_carga);
+
+    <span class="kw">UPDATE</span> dbo.controle_etl
+    <span class="kw">SET</span> dt_ultima_carga = <span class="fn">GETDATE</span>()
+    <span class="kw">WHERE</span> nm_processo = <span class="str">'FATO_SINISTRO'</span>;
+<span class="kw">END</span>;</pre>
+            </div>
+            <div class="code-description">
+              <p>Procedure de carga incremental usando MERGE para upsert na tabela fato de sinistros, com controle de watermark para rastreabilidade.</p>
+            </div>
+          </div>
+
+          <div class="code-nav-arrows">
+            <button class="code-nav-btn" onclick="slideCode('sql', -1)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+              Anterior
+            </button>
+            <span class="code-counter" id="sql-counter">1 / 2</span>
+            <button class="code-nav-btn" onclick="slideCode('sql', 1)">
+              Próximo
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Python Panel -->
+        <div class="code-panel" id="panel-python">
+          <div class="code-block" id="python-block-0">
+            <div class="code-header">
+              <div class="code-header-left">
+                <div class="code-window-dots"><span></span><span></span><span></span></div>
+                <span class="code-filename">etl_pipeline.py</span>
+              </div>
+              <button class="code-copy-btn" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <div class="code-body">
+<pre><span class="cm"># Pipeline ETL para processamento de dados de produção</span>
+<span class="cm"># Extrai do banco, transforma e carrega no data warehouse</span>
+
+<span class="kw">import</span> pandas <span class="kw">as</span> pd
+<span class="kw">from</span> sqlalchemy <span class="kw">import</span> create_engine
+<span class="kw">from</span> datetime <span class="kw">import</span> datetime
+
+<span class="kw">def</span> <span class="fn">extrair_producao</span>(engine, data_inicio):
+    <span class="str">"""Extrai dados de produção a partir da data informada."""</span>
+    query = <span class="str">f"""
+        SELECT id_proposta, cd_produto, vl_premio,
+               dt_emissao, cd_corretor, cd_status
+        FROM producao.propostas
+        WHERE dt_emissao >= '{data_inicio}'
+          AND cd_status = 'EMI'
+    """</span>
+    <span class="kw">return</span> pd.<span class="fn">read_sql</span>(query, engine)
+
+<span class="kw">def</span> <span class="fn">transformar_dados</span>(df):
+    <span class="str">"""Aplica regras de negócio e limpeza."""</span>
+    df[<span class="str">'dt_emissao'</span>] = pd.<span class="fn">to_datetime</span>(df[<span class="str">'dt_emissao'</span>])
+    df[<span class="str">'ano_mes'</span>] = df[<span class="str">'dt_emissao'</span>].dt.<span class="fn">to_period</span>(<span class="str">'M'</span>)
+    df[<span class="str">'faixa_premio'</span>] = pd.<span class="fn">cut</span>(
+        df[<span class="str">'vl_premio'</span>],
+        bins=[<span class="num">0</span>, <span class="num">1000</span>, <span class="num">5000</span>, <span class="num">20000</span>, float(<span class="str">'inf'</span>)],
+        labels=[<span class="str">'Baixo'</span>, <span class="str">'Médio'</span>, <span class="str">'Alto'</span>, <span class="str">'Premium'</span>]
+    )
+    df = df.<span class="fn">dropna</span>(subset=[<span class="str">'cd_corretor'</span>])
+    <span class="kw">return</span> df
+
+<span class="kw">def</span> <span class="fn">carregar_dw</span>(df, engine_dw):
+    <span class="str">"""Carrega dados transformados no DW."""</span>
+    df.<span class="fn">to_sql</span>(
+        name=<span class="str">'fato_producao'</span>,
+        con=engine_dw,
+        if_exists=<span class="str">'append'</span>,
+        index=<span class="kw">False</span>,
+        chunksize=<span class="num">5000</span>
+    )
+    <span class="fn">print</span>(<span class="str">f"[{datetime.now()}] {len(df)} registros carregados."</span>)
+
+<span class="kw">if</span> __name__ == <span class="str">'__main__'</span>:
+    src = <span class="fn">create_engine</span>(<span class="str">'mssql+pyodbc://server/db_prod'</span>)
+    dwh = <span class="fn">create_engine</span>(<span class="str">'mssql+pyodbc://server/dw'</span>)
+
+    dados = <span class="fn">extrair_producao</span>(src, <span class="str">'2024-01-01'</span>)
+    dados = <span class="fn">transformar_dados</span>(dados)
+    <span class="fn">carregar_dw</span>(dados, dwh)</pre>
+            </div>
+            <div class="code-description">
+              <p>Pipeline ETL em Python usando Pandas e SQLAlchemy para extração, transformação e carga de dados de produção no data warehouse.</p>
+            </div>
+          </div>
+
+          <div class="code-block" id="python-block-1" style="display:none;">
+            <div class="code-header">
+              <div class="code-header-left">
+                <div class="code-window-dots"><span></span><span></span><span></span></div>
+                <span class="code-filename">qualidade_dados.py</span>
+              </div>
+              <button class="code-copy-btn" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <div class="code-body">
+<pre><span class="cm"># Verificação automatizada de qualidade de dados</span>
+<span class="cm"># Gera relatório de anomalias e inconsistências</span>
+
+<span class="kw">import</span> pandas <span class="kw">as</span> pd
+<span class="kw">import</span> json
+<span class="kw">from</span> datetime <span class="kw">import</span> datetime
+
+<span class="kw">class</span> <span class="type">QualidadeDados</span>:
+    <span class="kw">def</span> <span class="fn">__init__</span>(self, df, nome_tabela):
+        self.df = df
+        self.nome = nome_tabela
+        self.problemas = []
+
+    <span class="kw">def</span> <span class="fn">verificar_nulos</span>(self, colunas_obrigatorias):
+        <span class="kw">for</span> col <span class="kw">in</span> colunas_obrigatorias:
+            nulos = self.df[col].<span class="fn">isnull</span>().<span class="fn">sum</span>()
+            <span class="kw">if</span> nulos > <span class="num">0</span>:
+                self.problemas.<span class="fn">append</span>({
+                    <span class="str">'tipo'</span>: <span class="str">'NULO'</span>,
+                    <span class="str">'coluna'</span>: col,
+                    <span class="str">'qtd'</span>: <span class="fn">int</span>(nulos),
+                    <span class="str">'pct'</span>: <span class="fn">round</span>(nulos / <span class="fn">len</span>(self.df) * <span class="num">100</span>, <span class="num">2</span>)
+                })
+
+    <span class="kw">def</span> <span class="fn">verificar_duplicatas</span>(self, chaves):
+        dupl = self.df.<span class="fn">duplicated</span>(subset=chaves).<span class="fn">sum</span>()
+        <span class="kw">if</span> dupl > <span class="num">0</span>:
+            self.problemas.<span class="fn">append</span>({
+                <span class="str">'tipo'</span>: <span class="str">'DUPLICATA'</span>,
+                <span class="str">'chaves'</span>: chaves,
+                <span class="str">'qtd'</span>: <span class="fn">int</span>(dupl)
+            })
+
+    <span class="kw">def</span> <span class="fn">gerar_relatorio</span>(self):
+        relatorio = {
+            <span class="str">'tabela'</span>: self.nome,
+            <span class="str">'dt_verificacao'</span>: datetime.<span class="fn">now</span>().<span class="fn">isoformat</span>(),
+            <span class="str">'total_registros'</span>: <span class="fn">len</span>(self.df),
+            <span class="str">'problemas'</span>: self.problemas,
+            <span class="str">'status'</span>: <span class="str">'OK'</span> <span class="kw">if not</span> self.problemas <span class="kw">else</span> <span class="str">'ATENÇÃO'</span>
+        }
+        <span class="kw">return</span> json.<span class="fn">dumps</span>(relatorio, indent=<span class="num">2</span>, ensure_ascii=<span class="kw">False</span>)</pre>
+            </div>
+            <div class="code-description">
+              <p>Classe de validação automatizada para qualidade de dados — verifica nulos, duplicatas e gera relatórios de anomalias em JSON.</p>
+            </div>
+          </div>
+
+          <div class="code-nav-arrows">
+            <button class="code-nav-btn" onclick="slideCode('python', -1)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+              Anterior
+            </button>
+            <span class="code-counter" id="python-counter">1 / 2</span>
+            <button class="code-nav-btn" onclick="slideCode('python', 1)">
+              Próximo
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- DAX Panel -->
+        <div class="code-panel" id="panel-dax">
+          <div class="code-block" id="dax-block-0">
+            <div class="code-header">
+              <div class="code-header-left">
+                <div class="code-window-dots"><span></span><span></span><span></span></div>
+                <span class="code-filename">medidas_comissionamento.dax</span>
+              </div>
+              <button class="code-copy-btn" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <div class="code-body">
+<pre><span class="cm">// Medidas DAX para análise de comissionamento</span>
+<span class="cm">// Usadas nos dashboards de acompanhamento gerencial</span>
+
+<span class="var">% Atingimento Meta</span> =
+<span class="kw">VAR</span> <span class="var">_realizado</span> =
+    <span class="fn">SUM</span>( fato_producao[vl_premio] )
+<span class="kw">VAR</span> <span class="var">_meta</span> =
+    <span class="fn">SUM</span>( dim_meta[vl_meta] )
+<span class="kw">RETURN</span>
+    <span class="fn">DIVIDE</span>( <span class="var">_realizado</span>, <span class="var">_meta</span>, <span class="num">0</span> )
+
+<span class="cm">// Comissão acumulada com filtro de contexto</span>
+<span class="var">Comissão YTD</span> =
+<span class="fn">CALCULATE</span>(
+    <span class="fn">SUM</span>( fato_comissao[vl_comissao] ),
+    <span class="fn">DATESYTD</span>( dim_calendario[dt_referencia] )
+)
+
+<span class="cm">// Ranking de corretores por produção</span>
+<span class="var">Ranking Corretor</span> =
+<span class="fn">RANKX</span>(
+    <span class="fn">ALL</span>( dim_corretor[nome_corretor] ),
+    [Total Prêmio],
+    ,
+    <span class="kw">DESC</span>,
+    <span class="kw">Dense</span>
+)
+
+<span class="cm">// Variação mês a mês</span>
+<span class="var">Variação MoM</span> =
+<span class="kw">VAR</span> <span class="var">_atual</span> = [Total Prêmio]
+<span class="kw">VAR</span> <span class="var">_anterior</span> =
+    <span class="fn">CALCULATE</span>(
+        [Total Prêmio],
+        <span class="fn">DATEADD</span>( dim_calendario[dt_referencia], <span class="num">-1</span>, <span class="kw">MONTH</span> )
+    )
+<span class="kw">RETURN</span>
+    <span class="fn">DIVIDE</span>( <span class="var">_atual</span> - <span class="var">_anterior</span>, <span class="var">_anterior</span>, <span class="num">0</span> )</pre>
+            </div>
+            <div class="code-description">
+              <p>Medidas DAX para dashboards de comissionamento: atingimento de meta, acumulado YTD, ranking de corretores e variação mensal.</p>
+            </div>
+          </div>
+
+          <div class="code-nav-arrows">
+            <button class="code-nav-btn" onclick="slideCode('dax', -1)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+              Anterior
+            </button>
+            <span class="code-counter" id="dax-counter">1 / 1</span>
+            <button class="code-nav-btn" onclick="slideCode('dax', 1)">
+              Próximo
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experiência -->
+  <section id="experiencia">
     <div class="section-inner">
       <span class="section-label">Trajetória</span>
       <h2 class="section-title">Experiência Profissional</h2>
@@ -1379,6 +2139,87 @@
         }
       });
     });
+
+    // ===== DASHBOARD SLIDER =====
+    let dashIndex = 0;
+    const dashTrack = document.getElementById('dashTrack');
+    const dashSlides = dashTrack ? dashTrack.children.length : 0;
+    const dashDotsContainer = document.getElementById('dashDots');
+
+    // Create dots
+    if (dashDotsContainer) {
+      for (let i = 0; i < dashSlides; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+        dot.onclick = () => goToDash(i);
+        dashDotsContainer.appendChild(dot);
+      }
+    }
+
+    function slideDash(dir) {
+      dashIndex = (dashIndex + dir + dashSlides) % dashSlides;
+      updateDash();
+    }
+
+    function goToDash(i) {
+      dashIndex = i;
+      updateDash();
+    }
+
+    function updateDash() {
+      if (!dashTrack) return;
+      dashTrack.style.transform = `translateX(-${dashIndex * 100}%)`;
+      const dots = dashDotsContainer.querySelectorAll('.slider-dot');
+      dots.forEach((d, i) => d.classList.toggle('active', i === dashIndex));
+    }
+
+    // Auto-play dashboard slider
+    setInterval(() => slideDash(1), 6000);
+
+    // ===== CODE SHOWCASE =====
+    const codeState = {
+      sql: { current: 0, total: 2 },
+      python: { current: 0, total: 2 },
+      dax: { current: 0, total: 1 }
+    };
+
+    function switchLang(lang) {
+      document.querySelectorAll('.code-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.code-panel').forEach(p => p.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+      document.getElementById('panel-' + lang).classList.add('active');
+    }
+
+    function slideCode(lang, dir) {
+      const state = codeState[lang];
+      state.current = (state.current + dir + state.total) % state.total;
+
+      // Hide all blocks in this lang, show current
+      for (let i = 0; i < state.total; i++) {
+        const block = document.getElementById(lang + '-block-' + i);
+        if (block) block.style.display = (i === state.current) ? 'block' : 'none';
+      }
+
+      // Update counter
+      const counter = document.getElementById(lang + '-counter');
+      if (counter) counter.textContent = (state.current + 1) + ' / ' + state.total;
+    }
+
+    function copyCode(btn) {
+      const codeBody = btn.closest('.code-block').querySelector('pre');
+      const text = codeBody.textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        const original = btn.textContent;
+        btn.textContent = 'Copiado!';
+        btn.style.color = 'var(--gold)';
+        btn.style.borderColor = 'var(--gold)';
+        setTimeout(() => {
+          btn.textContent = original;
+          btn.style.color = '';
+          btn.style.borderColor = '';
+        }, 2000);
+      });
+    }
   </script>
 </body>
 </html>
